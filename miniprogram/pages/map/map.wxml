@@ -1,0 +1,61 @@
+<view class="search-bar">
+
+  <view class="left">
+    <view class="start-point">
+      <text class="title">起点</text>
+
+      <input class="place" placeholder="输入起点" data-index="start" bindinput="searchInput"
+       confirm-type="done"
+       bindfocus="searchFocus" value="{{startPoint.title}}"></input>
+
+    </view>
+    <view class="end-point">
+      <text class="title">终点</text>
+
+      <input class="place" placeholder="输入终点" data-index="end" bindinput="searchInput"
+       confirm-type="done" value="{{endPoint.title}}"
+       bindfocus="searchFocus" ></input>
+
+    </view>
+  </view>
+
+  <view class="btn-confirm" catchtap="confirmDirection">确定</view>
+</view>
+
+<view class="search-result" hidden="{{!showSearchInfor}}">
+
+  <!-- <view class="infor">请在下方选择地点</view> -->
+
+  <view class="item" wx:for="{{suggestion}}" wx:key="{{index}}" data-point="{{item}}" bindtap="confirmPoint">{{item.title}}</view>
+</view>
+
+<view class="map">
+
+
+  <map
+      id="map" longitude="{{longitude}}" latitude="{{latitude}}" 
+      scale="{{scale}}" 
+      bindcontroltap="controltap"
+      markers="{{markers}}" 
+      bindmarkertap="markertap" 
+      polyline="{{polyline}}" 
+      bindregionchange="regionchange" 
+      show-location 
+      show-compass="{{true}}"
+      ></map>
+
+</view>
+
+<view class="showMarkers">
+
+  <view class="passengers">
+    附近乘客
+  </view>
+
+  <view class="drivers">
+    附近司机
+  </view>
+    
+    
+</view>
+  

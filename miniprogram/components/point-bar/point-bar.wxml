@@ -1,0 +1,27 @@
+<view class="point-bar-wraper" hover-class="none" hover-stop-propagation="false">
+    <view class="point-bar">
+
+        <view class="input">
+            <text class="title">添加司机</text>
+            <input class="place" placeholder="输入司机所在位置" 
+            confirm-type="done" 
+            bindinput="searchInput" 
+            bindfocus="searchFocus" 
+            value="{{point.title}}"></input>
+        </view>
+
+        <view class="btn-confirm" bindtap="confirmPoint">确定</view>
+
+    </view>
+
+    <view class="search-res" hidden="{{!showSearchInfor}}">
+
+        <view wx:for="{{suggestion}}" wx:key="{{index}}"
+        bindtap="choosePoint"
+        data-point="{{item}}">
+            {{item.title}}
+        </view>
+          
+
+    </view>
+</view>

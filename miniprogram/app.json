@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/map/map",
+    "pages/cloud/cloud",
+    "pages/drivers/drivers",
+    "pages/passengers/passengers"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/map/map",
+        "iconPath": "/assets/icon/map.png",
+        "selectedIconPath": "/assets/icon/map_active.png"
+      },
+      {
+        "pagePath": "pages/drivers/drivers",
+        "iconPath": "/assets/icon/driver.png",
+        "selectedIconPath": "/assets/icon/driver_active.png"
+      },
+      {
+        "pagePath": "pages/passengers/passengers",
+        "iconPath": "/assets/icon/passenger.png",
+        "selectedIconPath": "/assets/icon/passenger_active.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+/* components/driver-infor/driver-infor.wxss */
+.driver-infor-wraper{
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    background: #fff;
+    border-bottom: 5px solid #f7f7f7;
+}
+.driver-infor-wraper>view{
+    /* flex: 1 1 auto; */
+    overflow: hidden;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 30rpx;
+    box-sizing: border-box;
+}
+.driver-infor-wraper>view.name{
+    flex: 0 0 150rpx;
+    padding-left: 33rpx;
+}
+.driver-infor-wraper>view.address{
+    flex: 0 0 250rpx;
+    padding-left: 40rpx;
+}
+.driver-infor-wraper>view.lat{
+    flex: 0 0 172rpx;
+    padding: 0 30rpx;
+}
+.driver-infor-wraper>view.lng{
+    flex: 0 0 175rpx;
+    padding: 0 30rpx;
+}

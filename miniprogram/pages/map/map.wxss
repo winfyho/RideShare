@@ -1,0 +1,100 @@
+/* miniprogram/pages/map/map.wxss */
+page{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.map{
+  position: absolute;
+  z-index: 800;
+  top: 160rpx;
+  left: 0;
+  bottom: 100rpx;
+  right: 0;
+  /* margin-top: 160rpx; */
+  width: 100%;
+  height: 100%;
+}
+.map #map{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 100rpx;
+}
+.showMarkers{
+  position: fixed;
+  bottom: 0;
+  z-index: 900;
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  line-height: 80rpx;
+  background: #fff;
+}
+.showMarkers>view{
+  flex: 1 1 auto;
+  text-align: center;
+  height: 100%;
+}
+.showMarkers>view.drivers{
+  color: #f40
+}
+.showMarkers>view.passengers{
+  color: #00B26A;
+}
+.search-bar{
+  position: relative;
+  top: 0;
+  z-index: 800;
+  width: 100%;
+  height: 160rpx;
+  border-bottom: 2px solid #eee;
+  display: flex;
+}
+.search-bar .left{
+  flex: 1 1 auto;
+  height: 100%;
+  background: #f5f5f5;
+}
+.search-bar .left>view{
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  height: 80rpx;
+}
+.search-bar .title{
+  text-align: center;
+  height: 100%;
+  line-height: 80rpx;
+  flex: 0 0 100rpx;
+}
+.search-bar input{
+  flex: 1 1  auto;
+  margin: 10rpx 0rpx;
+  height: 60rpx;
+  box-sizing: border-box;
+  line-height: 60rpx;
+  color: #424244;
+  padding: 10rpx 30rpx;
+  background: #fff;
+}
+
+.search-bar .btn-confirm{
+  flex: 0 0 110rpx;
+  text-align: center;
+  color: rgb(0,178,106);
+  height: 160rpx;
+  line-height: 160rpx;
+}
+
+.search-result{
+  position: absolute;
+  top: 160rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;  
+  z-index: 999;
+  background: #fff;
+}
+.search-result .item{
+  padding: 20rpx 40rpx;
+}

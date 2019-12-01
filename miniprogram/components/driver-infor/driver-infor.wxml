@@ -1,0 +1,6 @@
+<view class="driver-infor-wraper">
+    <view class="name">{{driver.point.id}}</view>
+    <view class="address">{{driver.point.title}}</view>
+    <view class="lat">{{driver.point.latitude}}</view>
+    <view class="lng">{{driver.point.longitude}}</view>
+</view>

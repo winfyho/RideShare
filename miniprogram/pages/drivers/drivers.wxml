@@ -1,0 +1,7 @@
+<view class="point-bar">
+  <point-bar bind:refresh="refreshDrivers" />
+</view>
+
+<view class="drivers-wraper">
+  <driver-infor wx:for="{{drivers}}" wx:key="{{index}}" driver="{{item}}" />
+</view>
