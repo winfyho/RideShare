@@ -1,0 +1,26 @@
+/* components/driver-infor/driver-infor.wxss */
+.passenger-infor-wraper{
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    background: #fff;
+    border-bottom: 5px solid #f7f7f7;
+}
+.passenger-infor-wraper>view{
+    overflow: hidden;
+    height: 100rpx;
+    line-height: 100rpx;
+    box-sizing: border-box;
+}
+.passenger-infor-wraper>view.id{
+    flex: 0 0 250rpx;
+    padding-left: 33rpx;
+}
+.passenger-infor-wraper>view.start{
+    flex: 0 0 250rpx;
+    padding-left: 40rpx;
+}
+.passenger-infor-wraper>view.end{
+    flex: 0 0 250rpx;
+    padding: 0 30rpx;
+}

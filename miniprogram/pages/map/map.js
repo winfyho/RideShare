@@ -4,6 +4,7 @@ import directionTools from "../../service/direction.js"
 import driverTools from "../../service/driver.js"
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
 var qqmapsdk;
+var app = getApp()
 Page({
 
   /**
@@ -79,14 +80,17 @@ Page({
     } 
   },
   confirmDirection(){
+    app.globalData.startPoint = this.data.startPoint
     console.log(this.data.startPoint,this.data.endPoint)
     if (this.data.startPoint.latitude && this.data.endPoint.latitude){
       this.setData({
         showSearchInfor:false,
         showMap: true,
         longitude: this.data.startPoint.longitude,
-        latitude: this.data.startPoint.latitude
+        latitude: this.data.startPoint.latitude,
+        includes:[this.data.startPoint,this.data.endPoint]
       })
+      console.log("includes",this.data.includes)
       let start = {
         latitude:this.data.startPoint.latitude,
         longitude:this.data.startPoint.longitude,

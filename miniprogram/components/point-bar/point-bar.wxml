@@ -1,5 +1,5 @@
-<view class="point-bar-wraper" hover-class="none" hover-stop-propagation="false">
-    <view class="point-bar">
+<view class="point-bar-wraper {{showBar === false ? 'point-bar-wraper-none':''}}" >
+    <view class="point-bar" >
 
         <view class="input">
             <text class="title">添加司机</text>
@@ -11,6 +11,8 @@
         </view>
 
         <view class="btn-confirm" bindtap="confirmPoint">确定</view>
+
+        <!-- <view class="btn-showbar" bindtap="showBar">+</view> -->
 
     </view>
 

@@ -1,4 +1,5 @@
 // pages/passengers/passengers.js
+import passengerTools from "../../service/passenger.js"
 Page({
 
   /**
@@ -7,6 +8,16 @@ Page({
   data: {
 
   },
+  // 添加乘客到数据库
+  confirmPassenger(res){
+    // console.log(res.detail)
+    passengerTools.pushPassengerPool(this,res.detail.startPoint,res.detail.endPoint)
+  },
+
+
+
+
+
 
   /**
    * 生命周期函数--监听页面加载

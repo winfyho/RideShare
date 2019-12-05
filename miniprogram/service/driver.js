@@ -8,9 +8,21 @@ function pushDriverPool(point) {
       }
     })
     .then(res => {
-      wx.startPullDownRefresh()
+      wx.showToast({
+        title: '添加司机成功',
+      })
       console.log("添加司机成功-",point)
     })
+}
+
+function removeDriverPool(driver){
+  const db = wx.cloud.database();
+  const driver_pool = db.collection("driver_pool");
+  driver_pool.doc(driver._id).remove()
+  .then(res => {
+    console.log("删除司机成功-",driver,res)
+    wx.startPullDownRefresh()
+  })
 }
 
 function getDriversPools(pageObj){
@@ -38,5 +50,6 @@ function getDriversPools(pageObj){
 
 export default {
   pushDriverPool,
-  getDriversPools
+  getDriversPools,
+  removeDriverPool
 }

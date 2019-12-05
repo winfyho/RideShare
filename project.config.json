@@ -64,6 +64,13 @@
 					"id": -1,
 					"name": "drivers",
 					"pathName": "pages/drivers/drivers",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "passengers",
+					"pathName": "pages/passengers/passengers",
 					"scene": null
 				}
 			]

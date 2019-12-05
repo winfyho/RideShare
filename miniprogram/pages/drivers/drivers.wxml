@@ -1,7 +1,21 @@
-<view class="point-bar">
-  <point-bar bind:refresh="refreshDrivers" />
+<point-bar bind:refresh="refreshDrivers" />
+
+
+<view class="change-mode {{showMode === 'list' ? 'change-mode-list':'change-mode-map'}}">
+  <view class="btn-mode" bindtap="changeMode">
+
+    <view class="{{showMode === 'list' ? 'active':''}}">列表</view>
+    <view class="{{showMode === 'map' ? 'active':''}}">地图</view>
+
+  </view>
+
 </view>
 
-<view class="drivers-wraper">
+
+<view class="drivers-wraper" hidden="{{showMode === 'list' ? false : true}}">
   <driver-infor wx:for="{{drivers}}" wx:key="{{index}}" driver="{{item}}" />
+</view>
+
+<view class="drivers-map">
+  <map-marker markers="{{markers}}" />
 </view>

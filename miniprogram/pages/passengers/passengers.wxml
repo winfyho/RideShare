@@ -1,2 +1,9 @@
-<!--pages/passengers/passengers.wxml-->
-<text>pages/passengers/passengers.wxml</text>
+<search-bar class="search-bar" bind:confirm="confirmPassenger" />
+
+<!-- <view class="passengers">
+
+    <passenger-infor />
+
+</view> -->
+<map-marker class="map" />
+

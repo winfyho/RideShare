@@ -1,0 +1,37 @@
+<view>
+
+  <view class="search-bar {{showSearchBar === true ? '':'search-bar-none'}}">
+
+    <view class="left">
+      <view class="start-point">
+        <text class="title">起点</text>
+
+        <input class="place" placeholder="输入起点" data-index="start" bindinput="searchInput" confirm-type="done" bindfocus="searchFocus" value="{{startPoint.title}}"></input>
+
+      </view>
+      <view class="end-point">
+        <text class="title">终点</text>
+
+        <input class="place" placeholder="输入终点" data-index="end" bindinput="searchInput" confirm-type="done" value="{{endPoint.title}}" bindfocus="searchFocus"></input>
+
+      </view>
+    </view>
+
+
+    <view class="right btn-confirm" catchtap="confirmResult">确定</view>
+
+    <!-- <view class="btn-pull" bindtap="showSearchBar">
+      +
+    </view> -->
+      
+
+  </view>
+
+
+  <view class="search-result" hidden="{{!showSearchInfor}}">
+
+    <view class="item" wx:for="{{suggestion}}" wx:key="{{index}}" data-point="{{item}}" bindtap="confirmPoint">{{item.title}}</view>
+
+  </view>
+
+</view>

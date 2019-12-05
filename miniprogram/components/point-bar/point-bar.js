@@ -14,7 +14,8 @@ Component({
    */
   data: {
     point:{},
-    showSearchInfor:true,
+    showBar:true,
+    showSearchInfor:false,
     suggestion:[]
   },
 
@@ -22,6 +23,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    showBar(e){
+      this.setData({
+        showBar: this.data.showBar === true ? false : true
+      })
+    },
     searchInput(e){
       console.log("point-bar",e.detail.value)
       searchTools.getsuggest(e.detail.value,this)
@@ -44,7 +50,11 @@ Component({
     },
     confirmPoint(e){
       if(this.data.point.latitude && this.data.point.longitude){
+
         driverTools.pushDriverPool(this.data.point)
+        this.setData({
+          point:{},
+        })
         // this.triggerEvent('refresh', {})
 
       }else{

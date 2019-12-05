@@ -1,32 +1,45 @@
 /* components/driver-infor/driver-infor.wxss */
 .driver-infor-wraper{
     width: 100%;
-    height: 100rpx;
+    height: 120rpx;
     display: flex;
     background: #fff;
-    border-bottom: 5px solid #f7f7f7;
+    border-bottom: 3px solid #f7f7f7;
 }
 .driver-infor-wraper>view{
     /* flex: 1 1 auto; */
     overflow: hidden;
-    height: 100rpx;
-    line-height: 100rpx;
+    height: 120rpx;
+    line-height: 120rpx;
     padding-left: 30rpx;
     box-sizing: border-box;
 }
 .driver-infor-wraper>view.name{
-    flex: 0 0 150rpx;
+    flex: 0 0 100rpx;
     padding-left: 33rpx;
+    color: #f70;
 }
 .driver-infor-wraper>view.address{
-    flex: 0 0 250rpx;
+    flex: 0 0 300rpx;
     padding-left: 40rpx;
 }
-.driver-infor-wraper>view.lat{
-    flex: 0 0 172rpx;
+.driver-infor-wraper>view.location{
+    flex: 1 1 auto;
+}
+.driver-infor-wraper>view.location .lat,
+.driver-infor-wraper>view.location .lng{
+    width: 100%;
+    height: 50%;
+    line-height: 60rpx;
+    /* line-height: 50rpx; */
+    color: #666;
+    font-size: 24rpx;
     padding: 0 30rpx;
 }
-.driver-infor-wraper>view.lng{
-    flex: 0 0 175rpx;
-    padding: 0 30rpx;
+.driver-infor-wraper>view.location .lat{
+    line-height: 75rpx;
+}
+.driver-infor-wraper>view.location .lng{
+    width: 100%;
+    
 }

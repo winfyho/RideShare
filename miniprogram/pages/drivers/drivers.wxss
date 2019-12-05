@@ -1,1 +1,64 @@
 /* pages/drivers/drivers.wxss */
+.point-bar{
+    position: absolute;
+    height: 100rpx;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+/* 切换模式列表/地图模式------------ */
+.change-mode{
+    position: absolute;
+    top: 100rpx;
+    z-index: 900;
+    width: 100%;
+    height: 80rpx;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    line-height: 80rpx;
+    display: flex;
+}
+.change-mode-list{
+    background: #fff;
+}
+.change-mode-map{
+    background: rgba(0, 0, 0, .3);
+}
+
+.change-mode .btn-mode{
+    width: 100%;
+    height: 100%;
+    color: #000;
+    display: flex;
+    
+}
+.change-mode .btn-mode view{
+    padding: 0 20rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #777;
+}
+.change-mode-map .btn-mode>view{
+  color: #fff;
+}
+.change-mode .btn-mode>view.active{
+  color: #f40;
+}
+
+
+
+/* 地图模式-------------- */
+.drivers-wraper{
+  position: absolute;
+  top: 180rpx;
+  z-index: 850;
+}
+.drivers-map{
+    position: fixed;
+    z-index: 800;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

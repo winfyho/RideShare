@@ -22,7 +22,20 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    deleteDriver(e){
+      wx.showModal({
+        content: '是否删除',
+        confirmColor:"#f00",
+        success:res => {
+          if (res.confirm) {
+            console.log('用户点击确定-司机信息-',e.currentTarget.dataset.driver)
+            driverTools.removeDriverPool(e.currentTarget.dataset.driver)
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
   },
   lifetimes: {
     attached: function() {

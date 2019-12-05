@@ -1,0 +1,5 @@
+<view class="passenger-infor-wraper" bindlongtap="deleteDriver" data-driver="{{driver}}">
+    <view class="id">id</view>
+    <view class="start">start</view>
+    <view class="end">end</view>
+</view>

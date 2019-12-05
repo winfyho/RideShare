@@ -1,6 +1,8 @@
-<view class="driver-infor-wraper">
+<view class="driver-infor-wraper" bindlongtap="deleteDriver" data-driver="{{driver}}">
     <view class="name">{{driver.point.id}}</view>
     <view class="address">{{driver.point.title}}</view>
-    <view class="lat">{{driver.point.latitude}}</view>
-    <view class="lng">{{driver.point.longitude}}</view>
+    <view class="location">
+        <view class="lat">纬度:{{driver.point.latitude}}</view>
+        <view class="lng">经度:{{driver.point.longitude}}</view>
+    </view>
 </view>

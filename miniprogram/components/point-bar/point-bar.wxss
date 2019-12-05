@@ -1,53 +1,77 @@
-.point-bar-wraper{
-    width: 100%;
-    position: fixed;
-    top: 0;
-    background: #f5f5f5;
-    box-shadow: 5rpx 5rpx 8rpx rgba(0, 0, 0, .3)
+.point-bar-wraper {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #f5f5f5;
 }
 
-.point-bar{
-    width:100%;
-    height: 100rpx;
-    display: flex;
+.point-bar {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
 }
-.point-bar .btn-confirm{
-    flex: 0 0 80rpx;
-    height: 100%;
-    text-align: center;
-    line-height: 100rpx;
-    color: rgb(0,178,106);
+.point-bar-wraper-none{
+  transform: translateY(-90rpx);
 }
-.point-bar .input{
-    flex: 1 1 auto;
-    display: flex;
-}
-.point-bar .input .title{
-    flex: 0 0 150rpx;
-    display: block;
-    text-align: center;
-    height: 100%;
-    line-height: 100rpx;
-}
-.point-bar .input .place{
-    flex: 1 1 auto;
-    padding: 15rpx 20rpx;
-    box-sizing: border-box;
-    height: 70rpx;
-    background: #fff;
-    margin: 15rpx 20rpx;
+.point-bar .btn-confirm {
+  flex: 0 0 80rpx;
+  height: 100%;
+  text-align: center;
+  line-height: 100rpx;
+  color: rgb(0, 178, 106);
 }
 
+/* 显示按钮--------------------- */
 
-.point-bar-wraper .search-res{
-    position: fixed;
-    top: 100rpx;
-    background: #fff;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 999;
+.point-bar .btn-showbar {
+  position: absolute;
+  bottom: 1rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  left: 0;
+  right: 0;
+  z-index: 901;
+  transform: translateY(100%);
+  background: #f5f5f5;
+  text-align: center;
+  box-shadow: 0rpx 5rpx 3rpx rgba(0, 0, 0, 0.3);
 }
-.point-bar-wraper .search-res>view{
-    padding: 20rpx 40rpx;
+
+.point-bar .input {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.point-bar .input .title {
+  flex: 0 0 150rpx;
+  display: block;
+  text-align: center;
+  height: 100%;
+  line-height: 100rpx;
+}
+
+.point-bar .input .place {
+  flex: 1 1 auto;
+  padding: 15rpx 20rpx;
+  box-sizing: border-box;
+  height: 70rpx;
+  background: #fff;
+  margin: 15rpx 20rpx;
+}
+
+.point-bar-wraper .search-res {
+  position: fixed;
+  top: 100rpx;
+  background: #fff;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+}
+
+.point-bar-wraper .search-res>view {
+  padding: 20rpx 40rpx;
 }

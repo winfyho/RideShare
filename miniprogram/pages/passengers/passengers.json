@@ -1,3 +1,13 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "search-bar":"/components/search-bar/search-bar",
+    "map-marker":"/components/map-marker/map-marker",
+    "passenger-infor":"/components/passenger-infor/passenger-infor"
+
+  },
+  "backgroundColor": "#F6F6F6",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#A8D4F7",
+  "navigationBarTitleText": "添加乘客",
+  "navigationBarTextStyle": "white"
 }

@@ -1,0 +1,39 @@
+<map 
+    class="map-marker"
+    id="map-marker"
+    longitude="{{longitude}}" 
+    latitude="{{latitude}}" 
+    scale="{{scale}}" 
+    markers="{{markers}}" 
+    show-location 
+    include-points="{{includes}}">
+
+    <!-- <cover-view class="show-mode" bindtap="changeMode" >
+        <cover-view class="btn-mode {{mode === 'list' ? 'active':''}}">
+            列表
+        </cover-view>
+
+        <cover-view class="btn-mode {{mode === 'map' ? 'active':''}}">
+            地图
+        </cover-view>
+        
+    </cover-view> -->
+
+    <cover-view class="cover-view" >
+        <cover-view class="cover-wraper">
+
+            <cover-view class="btn location" bindtap="getCenterLocation">
+                定位
+            </cover-view>
+
+            <cover-view class="btn location" bindtap="toStartPoint">
+                起点
+            </cover-view>
+            
+        </cover-view>
+        
+    </cover-view>
+
+
+
+</map>

@@ -7,13 +7,20 @@ Page({
    */
   data: {
     drivers:[],
-    markers:[]
+    markers:[],
+
+    showMode:"list"
   },
   refreshDrivers(res){
     wx.startPullDownRefresh();
       
   },
-
+  changeMode(e){
+    this.setData({
+      showMode: this.data.showMode === 'map' ? 'list':'map'
+    })
+    console.log("change mode",this.data.showMode)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -54,6 +61,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showToast({
+      icon:'loading',
+      duration:700
+    })
     driverTools.getDriversPools(this)
 
   },
