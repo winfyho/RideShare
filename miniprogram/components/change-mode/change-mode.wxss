@@ -1,17 +1,9 @@
-/* pages/drivers/drivers.wxss */
-.point-bar{
-    position: absolute;
-    height: 100rpx;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-}
+/* components/change-mode/change-mode.wxss */
 /* 切换模式列表/地图模式------------ */
 .change-mode{
     position: absolute;
-    top: 100rpx;
-    z-index: 900;
+    /* top: 100rpx; */
+    z-index: 10;
     width: 100%;
     height: 80rpx;
     box-sizing: border-box;
@@ -44,21 +36,4 @@
 }
 .change-mode .btn-mode>view.active{
   color: #f40;
-}
-
-
-
-/* 地图模式-------------- */
-.drivers-wraper{
-  position: absolute;
-  top: 180rpx;
-  z-index: 850;
-}
-.drivers-map{
-    position: fixed;
-    z-index: 800;
-    top: 100rpx;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }

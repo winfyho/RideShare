@@ -1,4 +1,5 @@
 // miniprogram/pages/map/map.js
+
 import searchTools from "../../service/search.js"
 import directionTools from "../../service/direction.js"
 import driverTools from "../../service/driver.js"
@@ -123,7 +124,7 @@ Page({
     });
 
 
-    searchTools.getsuggest("厦门市", this)
+    searchTools.getsuggest("集美", this)
     driverTools.getDriversPools(this)
 
     wx.getLocation({

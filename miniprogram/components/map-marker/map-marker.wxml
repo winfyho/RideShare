@@ -1,10 +1,12 @@
 <map 
     class="map-marker"
     id="map-marker"
-    longitude="{{longitude}}" 
-    latitude="{{latitude}}" 
+    longitude="{{center.longitude}}" 
+    latitude="{{center.latitude}}" 
     scale="{{scale}}" 
     markers="{{markers}}" 
+    circles="{{circles}}"
+    polyline="{{polyline}}"
     show-location 
     include-points="{{includes}}">
 

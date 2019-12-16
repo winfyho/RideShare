@@ -1,9 +1,12 @@
 <search-bar class="search-bar" bind:confirm="confirmPassenger" />
 
-<!-- <view class="passengers">
 
-    <passenger-infor />
+<change-mode style="top:160rpx;" bind:changeMode="changeMode" />
+<map-marker class="map" style="z-index:{{mode === 'map'? 7 : 5}}" center="{{center}}" circle="{{circle}}" polyline="{{polyline}}" markers="{{endMarkers}}" />
+<view class="passengers">
 
-</view> -->
-<map-marker class="map" />
+  <passenger-infor wx:for="{{passengers}}" wx:key="{{index}}" passenger="{{item}}" num="{{index}}" />
 
+</view>
+
+<button style="z-index:999;background:'#fff'" bindtap="test" id="test">test</button>

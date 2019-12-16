@@ -1,0 +1,9 @@
+<view class="change-mode {{showMode === 'list' ? 'change-mode-list':'change-mode-map'}}">
+  <view class="btn-mode" bindtap="changeMode">
+
+    <view class="{{showMode === 'list' ? 'active':''}}">列表</view>
+    <view class="{{showMode === 'map' ? 'active':''}}">地图</view>
+
+  </view>
+
+</view>

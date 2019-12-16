@@ -2,12 +2,14 @@
   "usingComponents": {
     "search-bar":"/components/search-bar/search-bar",
     "map-marker":"/components/map-marker/map-marker",
-    "passenger-infor":"/components/passenger-infor/passenger-infor"
+    "passenger-infor":"/components/passenger-infor/passenger-infor",
+    "change-mode": "/components/change-mode/change-mode"
 
   },
-  "backgroundColor": "#F6F6F6",
+  "backgroundColor": "#ddd",
   "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#A8D4F7",
+  "navigationBarBackgroundColor": "#69C2A0",
   "navigationBarTitleText": "添加乘客",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true
 }

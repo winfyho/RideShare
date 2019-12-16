@@ -6,57 +6,80 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    markers:{
+    markers: {
+      type: Array,
+      value: []
+    },
+    center:{
+      type:Object,
+      value:{}
+    },
+    polyline:{
       type:Array,
       value:[]
-    },
+    }
+    // circle:{
+    //   type:Array,
+    //   value:[]
+    // }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    scale:14,
-    longitude:0,
-    latitude:0,
-    includes:[],
-    mode:"map",
-    startPoint:{}
+    scale: 13,
+    longitude: 118.09443,
+    latitude: 24.5829,
+    includes: [],
+    mode: "map",
+    startPoint: {},
+    circles: [
+      {
+        latitude: 24.5829,
+        longitude: 118.09443,
+        // color: "#0000ff",
+        fillColor: "#0044ff33",
+        strokeWidth: 5,
+        radius: 1200
+      }
+    ]
+
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    toStartPoint(e){
+    toStartPoint(e) {
       console.log(this.data.markers)
       let markers = this.data.markers
       markers.push(app.globalData.startPoint)
       console.log("起点附近", app.globalData.startPoint)
-      if (app.globalData.startPoint){
+      if (app.globalData.startPoint) {
         this.setData({
           longitude: app.globalData.startPoint.longitude || this.data.startPoint.longitude,
           latitude: app.globalData.startPoint.latitude || this.data.startPoint.latitude,
           markers
         })
-      }else{
+      } else {
         wx.showModal({
           title: '提示',
           content: '请先输入起点',
-          showCancel:false
+          showCancel: false
         })
       }
-      
+
     },
-    changeMode(e){
+    changeMode(e) {
       this.setData({
-        mode:this.data.mode === 'list' ? 'map':'list'
+        mode: this.data.mode === 'list' ? 'map' : 'list'
       })
     },
-    getCenterLocation(e){
+    getCenterLocation(e) {
       map.getCenterLocation({
-        success:res => {
-          console.log("中心点经纬度为", res.longitude,res.latitude)
+        success: res => {
+          console.log("中心点经纬度为", res.longitude, res.latitude)
         }
       })
 
@@ -77,7 +100,7 @@ Component({
         }
       })
       map.moveToLocation({
-        
+
         success: res => {
           console.log("移动中心到-", res)
         }
@@ -86,28 +109,28 @@ Component({
   },
   lifetimes: {
     attached: function() {
-      map = wx.createMapContext("map-marker",this)
-      
-      
-      wx.getLocation({
-        type: 'wgs84',
-        success:res => {
-          const latitude = res.latitude
-          const longitude = res.longitude
-          const startPoint = {
-            latitude : res.latitude,
-            longitude : res.longitude
-          }
-          const speed = res.speed
-          const accuracy = res.accuracy
-          console.log("当前位置", latitude, longitude)
-          this.setData({
-            longitude,
-            latitude,
-            startPoint: app.globalData.startPoint || startPoint
-          })
-        }
-      })
+      map = wx.createMapContext("map-marker", this)
+
+
+      // wx.getLocation({
+      //   type: 'wgs84',
+      //   success:res => {
+      //     const latitude = res.latitude
+      //     const longitude = res.longitude
+      //     const startPoint = {
+      //       latitude : res.latitude,
+      //       longitude : res.longitude
+      //     }
+      //     const speed = res.speed
+      //     const accuracy = res.accuracy
+      //     console.log("当前位置", latitude, longitude)
+      //     this.setData({
+      //       longitude,
+      //       latitude,
+      //       startPoint: app.globalData.startPoint || startPoint
+      //     })
+      //   }
+      // })
     },
     detached: function() {
       // 在组件实例被从页面节点树移除时执行

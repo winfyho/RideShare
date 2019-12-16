@@ -13,14 +13,14 @@
     box-sizing: border-box;
 }
 .passenger-infor-wraper>view.id{
-    flex: 0 0 250rpx;
+    flex: 0 0 50rpx;
     padding-left: 33rpx;
 }
 .passenger-infor-wraper>view.start{
-    flex: 0 0 250rpx;
+    flex: 1 1 350rpx;
     padding-left: 40rpx;
 }
 .passenger-infor-wraper>view.end{
-    flex: 0 0 250rpx;
+    flex: 1 1 350rpx;
     padding: 0 30rpx;
 }

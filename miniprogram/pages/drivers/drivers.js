@@ -9,7 +9,7 @@ Page({
     drivers:[],
     markers:[],
 
-    showMode:"list"
+    showMode:"map"
   },
   refreshDrivers(res){
     wx.startPullDownRefresh();

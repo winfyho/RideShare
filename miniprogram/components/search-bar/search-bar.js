@@ -72,9 +72,9 @@ Component({
       }
     },
     confirmResult(e){
-      this.setData({
-        showSearchBar: false,
-      })
+      // this.setData({
+      //   showSearchBar: false,
+      // })
       this.triggerEvent('confirm', {
         startPoint: this.data.startPoint,
         endPoint: this.data.endPoint

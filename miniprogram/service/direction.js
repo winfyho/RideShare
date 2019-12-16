@@ -13,6 +13,8 @@ function getDirection(start,end,pageObj) {
     to: end,
     success: function (res) {
       var ret = res;
+      console.log(ret)
+
       var coors = ret.result.routes[0].polyline, pl = [];
       //坐标解压（返回的点串坐标，通过前向差分进行压缩）
       var kr = 1000000;
@@ -23,19 +25,19 @@ function getDirection(start,end,pageObj) {
       for (var i = 0; i < coors.length; i += 2) {
         pl.push({ latitude: coors[i], longitude: coors[i + 1] })
       }
-      console.log(pl)
+      // console.log(pl)
       //设置polyline属性，将路线显示出来,将解压坐标第一个数据作为起点
       _this.setData({
         latitude: pl[0].latitude,
         longitude: pl[0].longitude,
         polyline: [{
           points: pl,
-          color: '#FF0000DD',
-          width: 4
+          color: '#0059ff88',
+          width: 5
         }],
         include_Points: pl
       })
-      console.log(_this.data.include_Points);
+      console.log("polyline-",_this.data.polyline[0].points);
 
     },
     
