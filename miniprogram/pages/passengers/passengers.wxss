@@ -23,9 +23,24 @@
   /* color: #0059ff; */
   /* top: 200rpx; */
 }
-#test{
-  background: #eee;
-  width: 300rpx;
+
+.match-btn,
+.confirm-btn{
   position: fixed;
-  bottom: 10rpx;
+  z-index: 999;
+  bottom: 0rpx;
+  right: 51%;
+  /* transform: translateX(-50%); */
+  width: 200rpx;
+  height: 80rpx;
+  text-align: center;
+  background: rgba(255, 119, 0, 0.699);
+  color: #fff;
+  border-radius: 20rpx;
+  line-height: 80rpx;
+
+}
+.confirm-btn {
+  left: 51%;
+  background: rgba(68, 182, 138, 0.664);
 }

@@ -1,4 +1,4 @@
-function getDirection(start,end,pageObj) {
+function getDirection(start,end,pageObj, lineColor) {
   var QQMapWX = require('../libs/qqmap-wx-jssdk.js');
   var qqmapsdk;
   qqmapsdk = new QQMapWX({
@@ -26,15 +26,23 @@ function getDirection(start,end,pageObj) {
         pl.push({ latitude: coors[i], longitude: coors[i + 1] })
       }
       // console.log(pl)
+      let polyline = pageObj.data.polyline;
+      let newLine = {
+        points: pl,
+        color: lineColor,
+        width: 5
+      }
+      polyline.push(newLine)
       //设置polyline属性，将路线显示出来,将解压坐标第一个数据作为起点
       _this.setData({
         latitude: pl[0].latitude,
         longitude: pl[0].longitude,
-        polyline: [{
-          points: pl,
-          color: '#0059ff88',
-          width: 5
-        }],
+        polyline,
+        // polyline: [{
+        //   points: pl,
+        //   color: lineColor,
+        //   width: 5
+        // }],
         include_Points: pl
       })
       console.log("polyline-",_this.data.polyline[0].points);

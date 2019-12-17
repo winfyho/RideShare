@@ -9,4 +9,5 @@
 
 </view>
 
-<button style="z-index:999;background:'#fff'" bindtap="test" id="test">test</button>
+<view class="match-btn" bindtap="test" >匹配乘客</view>
+<view class="confirm-btn" bindtap="confirmResult" >确认方案</view>

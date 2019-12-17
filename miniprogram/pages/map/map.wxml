@@ -47,6 +47,8 @@
 
 </view>
 
+<view class="match-btn" bindtap="startMatch">开始拼车</view>
+
 <!-- <view class="showMarkers">
 
   <view class="passengers">

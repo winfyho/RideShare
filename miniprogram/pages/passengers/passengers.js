@@ -3,6 +3,7 @@ import passengerTools from "../../service/passenger.js"
 import direction from "../../service/direction.js"
 import searchOthers from "../../algorithm/searchOthers.js"
 import match from "../../algorithm/match.js"
+var app = getApp()
 Page({
 
   /**
@@ -48,34 +49,47 @@ Page({
     polyline[0].color = "#0059ff88"
     polyline[0].width = 6
 
-    let markers = match.init(this.data.polyline[0].points, this.data.passengers)
+    let option = match.init(this.data.polyline[0].points, this.data.passengers)
+    app.globalData.matchPassengers = option.finalResult
+    console.log("匹配到乘客：", app.globalData.matchPassengers)
+
+    let markers = option.markers
     markers.forEach(i => {
       i.width = 30
       i.height = 30
     })
     this.setData({
-      endMarkers: markers,
+      endMarkers: option.markers,
       polyline
     })
-    console.log(this.data.endMarkers)
 
 
   },
+  confirmResult(e){
+    wx.switchTab({
+      url: '/pages/map/map'
+    })
+  },
+  onShow: function() {
+    console.log("onshow",app.globalData)
+    this.setData({
+      polyline: app.globalData.polyline
+    })
+    
 
+  },
 
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
-    passengerTools.getPassengerPools(this)
-    direction.getDirection({
-      latitude: 24.56629,
-longitude: 118.09267
-    }, {
-        latitude: 24.5132,
-longitude: 118.14649
-    }, this)
+    
+    // direction.getDirection({
+    //   // 默认光前体育馆
+    //   latitude: 24.5829,
+    //   longitude: 118.09443
+    // }, {
+    //   // 默认镇海路（地铁站）
+    //   latitude: 24.450615,
+    //   longitude: 118.082859
+    // }, this)
 
     wx.startPullDownRefresh()
 
@@ -97,9 +111,7 @@ longitude: 118.14649
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
 
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -119,7 +131,8 @@ longitude: 118.14649
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    passengerTools.getPassengerPools(this)
+    passengerTools.getPassengerPools(this, 0)
+    passengerTools.getPassengerPools(this, 1)
 
   },
 

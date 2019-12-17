@@ -25,32 +25,35 @@ function removePassengerPool(passenger) {
     })
 }
 
-function getPassengerPools(pageObj) {
+function getPassengerPools(pageObj,page) {
   const db = wx.cloud.database();
   const passenger_pool = db.collection("passenger_pool");
   passenger_pool
-  // .orderBy("point.latitude", "desc").orderBy("point.longitude", "desc")
+    .orderBy("startPoint.latitude", "desc").orderBy("startPoint.longitude", "desc")
+    .skip(page*20)
     .get()
     .then(res => {
-      let startMarkers = [];
-      let endMarkers = [];
+      // let startMarkers = [];
+      let endMarkers = pageObj.data.endMarkers;
+      let passengers = pageObj.data.passengers;
       res.data.forEach(i => {
-        i.startPoint.iconPath = "/assets/icon/others.png";
-        i.startPoint.width = 30;
-        i.startPoint.height = 30;
-        startMarkers.push(i.startPoint)
+        // i.startPoint.iconPath = "/assets/icon/others.png";
+        // i.startPoint.width = 30;
+        // i.startPoint.height = 30;
+        // startMarkers.push(i.startPoint)
 
         i.endPoint.iconPath = "/assets/icon/others.png";
         i.endPoint.width = 30;
         i.endPoint.height = 30;
         endMarkers.push(i.endPoint)
       })
+      passengers = passengers.concat(res.data)
       pageObj.setData({
-        passengers: res.data,
-        startMarkers: startMarkers,
+        passengers: passengers,
+        // startMarkers: startMarkers,
         endMarkers: endMarkers
       })
-      console.log("获取其他乘客-", pageObj.data.passengers, pageObj.data.startMarkers)
+      console.log("获取其他乘客-", pageObj.data.passengers)
       wx.stopPullDownRefresh()
     })
 }

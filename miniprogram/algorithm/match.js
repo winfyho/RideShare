@@ -1,6 +1,9 @@
 import {
   fitness
 } from "../algorithm/fitness .js"
+import {
+  evaluation
+}from "../algorithm/evaluation.js"
 
 function init(polyline, passengers) {
 
@@ -19,23 +22,67 @@ function init(polyline, passengers) {
   let markers = [];
   let success = [];
   let fail = [];
-  endPoints.forEach(i => {
+  let oldResult = [];
+  let newResult = [];
+  let finalResult = [];
 
-    let fit = fitness(i, groupIndexs, lineGroup)
-    // console.log(fit,i)
-    if (fit === -1) {
-      i.iconPath = "/assets/icon/fail.png"
-      fail.push(i)
-    } else {
-      i.iconPath = "/assets/icon/others.png"
 
-      success.push(i)
-    }
-  })
-  markers = success.concat(fail)
-  // console.log(success, fail, markers)
 
-  return markers
+  let T = 100; //初始温度
+  let delT = -2; // 变化温度
+  let minT = 0; // 温度阈值
+  const L = endPoints.length; // 每个温度下的迭代次数L
+
+
+
+  for (let i = T; i > minT; i += delT) {
+
+    // 每个温度下迭代40次（endPoints.length）
+    endPoints.forEach(i => {
+
+      let fit = fitness(i, groupIndexs, lineGroup)
+      // console.log(fit,i)
+      i.a_dis = fit;
+      if (fit === -1 || fit === 3) {
+        i.iconPath = "/assets/icon/fail.png"
+        fail.push(i)
+      } else {
+        i.iconPath = "/assets/icon/driver_icon.png"
+        success.push(i)
+      }
+    })
+    // console.log(success,fail)
+    success.sort(function (a, b) { return a.a_dis - b.a_dis  })
+
+    oldResult = newResult;
+    newResult = [];
+
+    success.forEach(i => {
+
+      // 获取新解
+      if (newResult.length < 3) {
+        i.iconPath = "/assets/icon/others.png"
+        newResult.push(i)
+      }
+    })
+
+
+    // 评价函数,判断是否接收新解
+    finalResult = evaluation(oldResult, newResult)
+    markers = success.concat(fail)
+    markers = markers.concat(finalResult)
+
+    
+    success = [];
+    fail = [];
+  }
+  finalResult.sort(function (a, b) { return b.latitude- a.latitude  })
+  console.log(finalResult, markers)
+
+  return {
+    markers,
+    finalResult
+  }
 
 }
 
